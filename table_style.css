@@ -1,0 +1,104 @@
+/* ===============================
+   File: table_style.css 
+   Version: v1.5.0
+   =============================== */
+/* Общий стиль для таблиц  */
+.dynamic-table {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+}
+
+/* Заголовки */
+.dynamic-table thead {
+    background-color: #4271FF;
+    color: white;
+}
+
+/* Наведение на шапку*/
+.dynamic-table thead tr:hover {
+ background-color: #2D54FF; 
+}
+
+/* Наведение на строку */ 
+.dynamic-table tr:hover td {
+background-color: #EDFFFF;
+}
+
+/* Числовые колонки (decimal + int) */
+.dynamic-table td.decimal-col,
+.dynamic-table td.int-col {
+  text-align: right;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums; /* одинаковая ширина цифр */
+}
+
+/* Минимальные ширины */
+.dynamic-table td.decimal-col,
+.dynamic-table th.decimal-col {
+  min-width: 90px;
+}
+
+.dynamic-table td.int-col,
+.dynamic-table th.int-col {
+  min-width: 70px;
+}
+
+/* Дата-колонки */
+.dynamic-table td.date-col,
+.dynamic-table th.date-col {
+  min-width: 110px;
+  text-align: center;
+}
+
+/* Скрыть стрелки сортировки */
+.dynamic-table th.sorting::before,
+.dynamic-table th.sorting::after,
+.dynamic-table th.sorting_asc::before,
+.dynamic-table th.sorting_asc::after,
+.dynamic-table th.sorting_desc::before,
+.dynamic-table th.sorting_desc::after {
+    display: none !important;
+}
+
+/* Унифицируем ширину выпадающих списков в DataTables */
+table.dynamic-table td.select-col select {
+  width: auto;
+  min-width: 100px;
+  box-sizing: border-box;
+  padding: 2px 4px;
+}
+
+/* Чтобы выпадающий список не "прыгал" при смене значения */
+table.dynamic-table td.select-col {
+  white-space: nowrap;
+}
+
+/* Wrapper для таблицы */
+.dynamic-table-wrapper {
+  margin: 20px 0;
+  overflow-x: auto;
+}
+
+/* Стили для DataTables элементов управления */
+.dynamic-table-wrapper .dataTables_wrapper .dataTables_length,
+.dynamic-table-wrapper .dataTables_wrapper .dataTables_filter {
+  margin-bottom: 10px;
+}
+
+.dynamic-table-wrapper .dataTables_wrapper .dataTables_info,
+.dynamic-table-wrapper .dataTables_wrapper .dataTables_paginate {
+  margin-top: 10px;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .dynamic-table-wrapper {
+    font-size: 14px;
+  }
+  
+  .dynamic-table td.decimal-col,
+  .dynamic-table th.decimal-col {
+    min-width: 80px;
+    }
+     }
